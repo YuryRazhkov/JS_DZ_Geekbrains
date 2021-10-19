@@ -49,7 +49,7 @@ function div(a, b) {
 * @param {string}  operation: '+', '-', '*', '='. Иначе default: "used wrong operetor"
 * @returns {number}  возвращает результат операции
 */
-function mathOperation(a, b, operation) { // не знаю уместен ли тут CASE, но просто решил попробывать
+function mathOperation(a, b, operation) { // не знаю уместен ли тут 'switch', но просто решил попробывать
   switch (operation) {
     case "+":
       return (sum(a, b));
