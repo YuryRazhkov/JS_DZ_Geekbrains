@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+  <script>
+    "use strict";
+    // ProductES5
+
+    function ProductES5(name, cost) {
+      this.name = name
+      this.cost = cost
+    };
+
+    ProductES5.prototype.make25Discount = function () {
+      this.cost = Math.floor((this.cost * 0.75) * 100) / 100
+    };
+
+    let eggs = new ProductES5('eggs', 20.55);
+    let apples = new ProductES5('apples', 10);
+    let kiwi = new ProductES5('kiwi', 30.28);
+
+
+    console.log('ProductES5 beforу make25Discount');
+
+    console.log(eggs.cost, eggs.name); // не очень такой пример :) Обратиться по имени, чтоб вернуть имя. 
+    console.log(apples.cost);          //  ниже сделаю интереснее
+    console.log(kiwi.cost);
+
+    eggs.make25Discount()
+    apples.make25Discount()
+    kiwi.make25Discount()
+
+    console.log('\nProductES5 after make25Discount');
+
+    console.log(eggs.cost);
+    console.log(apples.cost);
+    console.log(kiwi.cost);
+
+    // ProductES6
+
+    class ProductES6 {
+      constructor(name, cost) {
+        this.name = name
+        this.cost = cost
+      }
+
+      make25Discount = function () {
+        this.cost = Math.floor((this.cost * 0.75) * 100) / 100
+      }
+    }
+    let printer = new ProductES6('HP1018', 520.55);
+    let printer2 = new ProductES6('HP1020', 620.22);
+    let router = new ProductES6('MT-PON-AT-4', 110);
+    let router2 = new ProductES6('Xiaomi Mi Wi-Fi Router 4C', 110);
+    let scaner = new ProductES6('Canon VM20', 330.28);
+
+
+    console.log('---------------')
+    console.log('\nProductES6 beforу make25Discount');
+
+    console.log(printer.cost, printer.name);
+    console.log(printer2.cost, printer2.name);
+    console.log(router.cost, router.name);
+    console.log(router2.cost, router2.name);
+    console.log(scaner.cost, scaner.name);
+    console.log(scaner);
+
+
+    printer.make25Discount()
+    router.make25Discount()
+    router2.make25Discount()
+    scaner.make25Discount()
+
+    console.log('\nProductES6 after make25Discount');
+
+    console.log(printer.cost, printer.name);
+    console.log(printer2.cost, printer2.name);
+    console.log(router.cost, router.name);
+    console.log(router2.cost, router2.name);
+    console.log(scaner.cost, scaner.name);
+    console.log(scaner);
+  </script>
+</body>
+
+</html>
