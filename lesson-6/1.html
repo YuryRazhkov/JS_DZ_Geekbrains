@@ -49,15 +49,24 @@
     /*
     2. Установите всем элементам с классом "product" внешний отступ справа 50px.
      */
-    [...document.querySelectorAll('.product')].forEach(el => el.style.margin = '50px');
+    [...document.querySelectorAll('.product')].forEach(el => el.style.marginRight = '50px');
 
     /*
     3. При клике на кнопку "В корзину" название кнопки должно поменяться на
     "Добавлено" и кнопка должна стать неактивной.
-     */
-    [...document.querySelectorAll('button')].forEach(el =>
-      el.addEventListener("click", function (event) {
-        el.textContent = 'Добавлено'
+    //  */
+    // [...document.querySelectorAll('button')].forEach(el =>
+    //   el.addEventListener("click", function (event) {
+    //     el.textContent = 'Добавлено'
+    //     el.disabled = true;
+    //   }));   Так не работает задача 4.
+
+    document.body.addEventListener("click",
+      ("click", function (event) {
+        if (event.target.tagName == "BUTTON") {
+          event.target.textContent = 'Добавлено'
+          event.target.disabled = true;
+        }
       }));
     /*
     
@@ -68,17 +77,25 @@
     отображенный товар на странице на созданную копию. У данной копии также
     должен правильно работать код из 3-го задания.
      */
-    let cloneProd = document.querySelector('.product').cloneNode(true)
+    let cloneProd = document.querySelector('.product').cloneNode(true);
 
     cloneProd.querySelector('img').setAttribute('src', 'http://lorempixel.com/200/300/food/4/')
     cloneProd.querySelector('.productName').textContent = 'Товар 4'
-
-
+    document.querySelector('.product:last-of-type').replaceWith(cloneProd);
     /*
     5. По истечению 2 секунд с момента открытия страницы первый товар должен быть
     удален из html.
      */
 
+    function delProdTime2000() {
+      document.querySelector('.product').remove()
+    };
+    setTimeout(delProdTime2000, 2000);
+
+    setTimeout((function delProdTime2000() { document.querySelector('.product').remove() }), 3000);
+
+    setTimeout(() => document.querySelector('.product').remove(), 4000); // ну так-то (как в решении)
+                                                                        //оно конечно поизящнее будет
 
   </script>
 </body>
