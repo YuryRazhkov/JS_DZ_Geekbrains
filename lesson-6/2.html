@@ -46,21 +46,27 @@
   "use strict";
 
   /*
-  1. При изменении значения в input, значение содержащееся в нем должно
-  моментально отображаться в span. То есть при печати в input'е тег span также
-  должен меняться.
-  */
-  const usersInput = document.getElementById('from')
-  usersInput.addEventListener('input', el =>
-  {document.querySelector('span').textContent = el.target.value})
+1. При изменении значения в input, значение содержащееся в нем должно
+моментально отображаться в span. То есть при печати в input'е тег span также
+должен меняться.
+*/
+const usersInput = document.getElementById('from')
+usersInput.addEventListener('input', el => { document.querySelector('span').textContent = el.target.value })
 
-  /*
-  2. При клике на кнопку с классом messageBtn необходимо элементу с классом
-  message:
-  1) добавить два класса: animate__animated и animate__fadeInLeftBig
-  2) поставить данному элементу стиль visibility в значение 'visible'.
-   */
 
+/*
+2. При клике на кнопку с классом messageBtn необходимо элементу с классом
+message:
+1) добавить два класса: animate__animated и animate__fadeInLeftBig
+2) поставить данному элементу стиль visibility в значение 'visible'.
+ */
+
+const massageClass = document.querySelector(".message")
+
+massageClass.classList.add('animate__animated', 'animate__fadeInLeftBig')
+// document.getElementsByClassName("message").classList.add('animate__fadeInLeftBig')
+massageClass.style.visibility = 'visible'
+console.log(massageClass)
 
   /*
   3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
