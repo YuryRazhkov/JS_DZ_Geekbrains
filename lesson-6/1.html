@@ -62,7 +62,7 @@
     //   }));   Так не работает задача 4.
 
     document.body.addEventListener("click",
-      ("click", function (event) {
+      (function (event) {
         if (event.target.tagName == "BUTTON") {
           event.target.textContent = 'Добавлено'
           event.target.disabled = true;
