@@ -58,28 +58,32 @@
       X6: "Знаю, программирование это нелегко.",
       H99: "Однако, программирование, в итоге, принесет свои плоды.",
     };
-    const parentLnks = document.querySelector(".nav-tabs")
+    const parentLnk = document.querySelector(".nav-tabs")
     const childLnks = document.querySelectorAll(".nav-link")
 
-    // console.log(lnks.children)
-
-    parentLnks.addEventListener('click', evt => {
+    parentLnk.addEventListener('click', evt => {
       if (evt.target.classList.contains('nav-link')) {
         [...childLnks].forEach(el => {
           el.classList.remove('active')
         });
-
         evt.target.classList.add('active')
       };
     })
-
-
 
     /*
     2. Необходимо сделать так, чтобы при изменении input'а менялся и размер шрифта
     у элемента с id="inputDiv". Перемещение ползунка должно плавно увеличивать
     шрифт у текста.
      */
+
+    const inputDiv = document.getElementById('inputDiv');
+    const inputRange = document.querySelector('input');
+
+    inputRange.addEventListener('change', ev => { inputDiv.style.fontSize = inputRange.value + "px" }
+    );
+
+
+
 
   </script>
 </body>
