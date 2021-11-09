@@ -83,12 +83,11 @@
     document.querySelector('header').addEventListener('click', event => {
       if (!event.target.classList.contains('menuButton')) {
         return; // объясните пожалуйста, зачем делается такой ретерн
+        // почему не оставляется только истиное условие?
       }
       productsEl.innerHTML = products[event.target.dataset.type]
         .map(product => product.getProductMarkup()).join("")
-    
     });
-
 
 
   </script>
